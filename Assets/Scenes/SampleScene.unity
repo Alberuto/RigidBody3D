@@ -459,6 +459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch14_nonPBR
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4315648579854482848, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -467,12 +471,19 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ccf0c4942a38ad54ba93daeb5648fe9f, type: 2}
+    - target: {fileID: 5866666021909216657, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
       insertIndex: -1
       addedObject: {fileID: 330585546}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 878884746}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
       insertIndex: -1
@@ -486,6 +497,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
       insertIndex: -1
       addedObject: {fileID: 631988003}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 631988005}
   m_SourcePrefab: {fileID: 100100000, guid: b1acc829315c4b64bb94c4eb46c64871, type: 3}
 --- !u!4 &631987998 stripped
 Transform:
@@ -590,8 +604,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   speed: 33
-  jumpForce: 6
-  runMultiplier: 2
+  jumpForce: 33
+  isGrounded: 0
+  runMultiplier: 3
+  groundCheck: {fileID: 878884746}
+  groundRadius: 4.81
+--- !u!114 &631988005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631987999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7155201f3d619f448023e85042c331b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Animaciones
+  animator: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +672,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &878884745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 878884746}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &878884746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878884745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 631987998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1221363513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3459512328627495179, guid: d25d7d96e908c7d4d8d50d2e30b328f0, type: 3}
@@ -679,6 +741,10 @@ PrefabInstance:
     - target: {fileID: 3459512329525355803, guid: d25d7d96e908c7d4d8d50d2e30b328f0, type: 3}
       propertyPath: m_Name
       value: WoodLand_Diorama
+      objectReference: {fileID: 0}
+    - target: {fileID: 3459512329525355803, guid: d25d7d96e908c7d4d8d50d2e30b328f0, type: 3}
+      propertyPath: m_TagString
+      value: suelo
       objectReference: {fileID: 0}
     - target: {fileID: 3459512329525355812, guid: d25d7d96e908c7d4d8d50d2e30b328f0, type: 3}
       propertyPath: m_LocalScale.x
