@@ -12,6 +12,14 @@ public class Animaciones : MonoBehaviour {
         if(!rb)
             rb = GetComponent<Rigidbody>();
     }
+    public void AnimacionSaltar1() {
+
+        animator.SetTrigger("Saltar");    
+    }
+    public void AnimacionSaltar2() {
+
+        animator.SetTrigger("Saltar2");
+    }
     private void FixedUpdate() {
 
         Vector3 vWorld = rb.linearVelocity;
@@ -20,7 +28,6 @@ public class Animaciones : MonoBehaviour {
         animator.SetFloat("y", vLocal.z);
     }
     void Update() {
-
 
     }
 }

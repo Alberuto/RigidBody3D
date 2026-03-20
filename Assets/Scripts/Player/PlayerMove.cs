@@ -19,7 +19,6 @@ public class PlayerMove : MonoBehaviour {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundRadius = 0.5f;
 
-
     void Start() {
         rb = GetComponent<Rigidbody>();
     }
@@ -51,7 +50,7 @@ public class PlayerMove : MonoBehaviour {
             
             if (collider.gameObject != gameObject) {
                 groundedNow = true;
-                Debug.Log("Grounded tocando: " + collider.gameObject.name);
+                //Debug.Log("Grounded tocando: " + collider.gameObject.name); debug del collider para verificar el toque de suelo
                 break;
             }
         }
