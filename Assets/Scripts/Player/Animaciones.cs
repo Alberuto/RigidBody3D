@@ -16,12 +16,13 @@ public class Animaciones : MonoBehaviour {
         animator.SetBool("EnSuelo",value);
     }
     public void AnimacionSaltar1() {
-
         animator.SetTrigger("Saltar");    
     }
     public void AnimacionSaltar2() {
-
         animator.SetTrigger("Saltar2");
+    }
+    public void AnimacionDisparar() {
+        animator.SetTrigger("Disparo");
     }
     private void FixedUpdate() {
         Vector3 vWorld = rb.linearVelocity;

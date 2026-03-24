@@ -24,12 +24,12 @@ public class PlayerLook : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked; //puntero raton locked
         Cursor.visible = false;                   // and hidden
     }
-    void Update() {
+    void LateUpdate() { //  IMPORTANTE PARA CAMARAS SIEMPRE USAR ESTE METODO Y NO UPDATE PARA EVITAR ERRORES DE SINCRONIA.
 
-       /* if (!canMove)
+        if (!canMove)
             return;
         if (cameraTransform==null)
-            return;*/
+            return;
         //rotacion horizontal
         float yaw = lookInput.x * mouseSensitivity;
         transform.Rotate(0,yaw,0,Space.Self);
@@ -41,29 +41,23 @@ public class PlayerLook : MonoBehaviour {
     }
     private void UpdateActiveCamera() {
 
-        Debug.Log("llega");
-
-        //if (Camera.main != currentCamera) {
-
-            Debug.Log("llega a update");
-
+        if (Camera.main != currentCamera) {
             currentCamera = Camera.main;
 
             if (currentCamera != null) {
-                Debug.Log("llega a update active camera");
+                  
                 cameraTransform = currentCamera.transform;
                 pitch = cameraTransform.localEulerAngles.x;
                 if (pitch > 180f) 
                     pitch -= 360f;
             }
-        //}
+        }
     }
     public void SetCanMove(bool value) { 
         canMove = value;
     }
     public void OnLook(InputValue value) { //input system tienen que ser publicos
         lookInput = value.Get<Vector2>();
-        Debug.Log("miro");
     }
     private void OnEnable() { //reiniciar el puntero
         lookInput=Vector2.zero;
