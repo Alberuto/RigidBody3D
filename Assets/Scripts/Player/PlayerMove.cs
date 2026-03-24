@@ -19,7 +19,11 @@ public class PlayerMove : MonoBehaviour {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundRadius = 0.5f;
 
+    [SerializeField] private Animaciones animator;
+
+
     void Start() {
+        animator = GetComponent<Animaciones>();
         rb = GetComponent<Rigidbody>();
     }
     void Update() {
@@ -57,6 +61,7 @@ public class PlayerMove : MonoBehaviour {
         if (groundedNow != isGrounded) { 
 
             isGrounded = groundedNow;
+            animator.EnSuelo(isGrounded);
             //animations......
         }
     }
@@ -78,14 +83,14 @@ public class PlayerMove : MonoBehaviour {
     }*/
     public void OnJump(InputValue value) {
         if (value.isPressed && isGrounded) {
+            animator.AnimacionSaltar1();
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            //isGrounded = false;  //Evitar salto múltiple y problemas de timing
+            isGrounded = false;  //Evitar salto múltiple y problemas de timing
         }
     }
-    private void OnDrawGizmosSelected() {
-
-        if (groundCheck == null) return;
-       
+    private void OnDrawGizmosSelected() { //ver el icono de toque en suelo
+        if (groundCheck == null) 
+            return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
     }

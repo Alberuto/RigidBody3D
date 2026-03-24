@@ -12,6 +12,9 @@ public class Animaciones : MonoBehaviour {
         if(!rb)
             rb = GetComponent<Rigidbody>();
     }
+    public void EnSuelo(bool value) {
+        animator.SetBool("EnSuelo",value);
+    }
     public void AnimacionSaltar1() {
 
         animator.SetTrigger("Saltar");    
@@ -21,11 +24,11 @@ public class Animaciones : MonoBehaviour {
         animator.SetTrigger("Saltar2");
     }
     private void FixedUpdate() {
-
         Vector3 vWorld = rb.linearVelocity;
         Vector3 vLocal = transform.InverseTransformDirection(vWorld);
         animator.SetFloat("x", vLocal.x);
         animator.SetFloat("y", vLocal.z);
+        animator.SetFloat("VelocidadVertical", vLocal.y);
     }
     void Update() {
 

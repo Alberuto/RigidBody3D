@@ -997,6 +997,7 @@ MonoBehaviour:
   runMultiplier: 3
   groundCheck: {fileID: 878884746}
   groundRadius: 4.81
+  animator: {fileID: 0}
 --- !u!114 &631988005
 MonoBehaviour:
   m_ObjectHideFlags: 0
