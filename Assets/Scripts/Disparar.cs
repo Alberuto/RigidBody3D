@@ -12,12 +12,13 @@ public class Disparar : MonoBehaviour {
 
     public Animaciones animator;
     public float retraso = 0.5f;
-
+    public AudioSource audioSource;
     private void Disparado() {
 
         if (prefabBala == null || puntoDisparo == null) 
             return;
 
+        audioSource.Play();
         StartCoroutine(DisparoDelay());
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
