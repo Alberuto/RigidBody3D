@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerMove : MonoBehaviour {
 
@@ -21,6 +22,8 @@ public class PlayerMove : MonoBehaviour {
 
     [SerializeField] private Animaciones animator;
 
+    [SerializeField] private AudioSource pasos;
+    [SerializeField] private AudioSource salto;
 
     void Start() {
         animator = GetComponent<Animaciones>();
@@ -30,6 +33,8 @@ public class PlayerMove : MonoBehaviour {
         isRunning = Keyboard.current != null &&
         (Keyboard.current.leftCtrlKey.isPressed ||
         Keyboard.current.rightCtrlKey.isPressed);
+
+      
     }
     private void FixedUpdate() {
 
@@ -39,10 +44,29 @@ public class PlayerMove : MonoBehaviour {
         Vector3 newVelocity = new Vector3(velocity.x, rb.linearVelocity.y, velocity.z);
         rb.linearVelocity = newVelocity;
         CheckGround();
+        sonidoPasos();
 
+    }
+    public void OnGolpear(InputValue valor) {
+
+        if (valor.isPressed && isGrounded ) {
+            
+                animator.AnimacionGolpear();   
+        }
     }
     public void OnMove(InputValue value) {
         moveInput = value.Get<Vector2>();
+    }
+    public void sonidoPasos() {
+
+        bool seEstaMoviendo = moveInput.sqrMagnitude > 0.01f;
+        bool debeSonar = seEstaMoviendo && isGrounded;
+
+            if(debeSonar && !pasos.isPlaying)
+                pasos.Play();
+            else if(!debeSonar && pasos.isPlaying)
+                pasos.Stop();
+        
     }
     void CheckGround() {
 
@@ -86,6 +110,8 @@ public class PlayerMove : MonoBehaviour {
             animator.AnimacionSaltar1();
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;  //Evitar salto múltiple y problemas de timing
+            salto.Play();
+            pasos.Stop();
         }
     }
     private void OnDrawGizmosSelected() { //ver el icono de toque en suelo

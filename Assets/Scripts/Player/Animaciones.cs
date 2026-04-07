@@ -24,6 +24,9 @@ public class Animaciones : MonoBehaviour {
     public void AnimacionDisparar() {
         animator.SetTrigger("Disparo");
     }
+    public void AnimacionGolpear() {
+        animator.SetTrigger("Golpear");
+    }
     private void FixedUpdate() {
         Vector3 vWorld = rb.linearVelocity;
         Vector3 vLocal = transform.InverseTransformDirection(vWorld);

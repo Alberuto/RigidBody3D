@@ -6,6 +6,7 @@ TagManager:
   tags:
   - suelo
   - bala
+  - mano
   layers:
   - Default
   - TransparentFX
