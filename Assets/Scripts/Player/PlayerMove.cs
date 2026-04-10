@@ -33,8 +33,6 @@ public class PlayerMove : MonoBehaviour {
         isRunning = Keyboard.current != null &&
         (Keyboard.current.leftCtrlKey.isPressed ||
         Keyboard.current.rightCtrlKey.isPressed);
-
-      
     }
     private void FixedUpdate() {
 
@@ -45,7 +43,6 @@ public class PlayerMove : MonoBehaviour {
         rb.linearVelocity = newVelocity;
         CheckGround();
         sonidoPasos();
-
     }
     public void OnGolpear(InputValue valor) {
 
@@ -89,22 +86,6 @@ public class PlayerMove : MonoBehaviour {
             //animations......
         }
     }
-    /*
-    void OnCollisionEnter(Collision collision) {
-        if (collision.collider.CompareTag("suelo")) {
-            isGrounded = true;
-        }
-    }
-    void OnCollisionStay(Collision collision) {
-        if (collision.collider.CompareTag("suelo")) {
-            isGrounded = true;
-        }
-    }
-    void OnCollisionExit(Collision collision) {
-        if (collision.collider.CompareTag("suelo")) {
-            isGrounded = false;
-        }
-    }*/
     public void OnJump(InputValue value) {
         if (value.isPressed && isGrounded) {
             animator.AnimacionSaltar1();
@@ -121,3 +102,19 @@ public class PlayerMove : MonoBehaviour {
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
     }
 }
+/*
+void OnCollisionEnter(Collision collision) {
+    if (collision.collider.CompareTag("suelo")) {
+        isGrounded = true;
+    }
+}
+void OnCollisionStay(Collision collision) {
+    if (collision.collider.CompareTag("suelo")) {
+        isGrounded = true;
+    }
+}
+void OnCollisionExit(Collision collision) {
+    if (collision.collider.CompareTag("suelo")) {
+        isGrounded = false;
+    }
+}*/

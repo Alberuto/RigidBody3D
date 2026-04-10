@@ -45,7 +45,7 @@ public class PlayerLook : MonoBehaviour {
             currentCamera = Camera.main;
 
             if (currentCamera != null) {
-                  
+                
                 cameraTransform = currentCamera.transform;
                 pitch = cameraTransform.localEulerAngles.x;
                 if (pitch > 180f) 
