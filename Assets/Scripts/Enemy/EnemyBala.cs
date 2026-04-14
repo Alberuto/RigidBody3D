@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyBala : MonoBehaviour {
 
@@ -6,6 +7,8 @@ public class EnemyBala : MonoBehaviour {
     bool muerto = false;
     public AudioSource audio;
     public Animaciones animaciones;
+    [SerializeField] private GameObject efectoSangre;
+    [SerializeField] private Transform puntoSangrado;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -19,6 +22,7 @@ public class EnemyBala : MonoBehaviour {
 
         if (collision.gameObject.tag == "bala")  {
             Destroy(collision.gameObject);
+            SangrarCollision(collision);
             muerto = true;
             animator.SetTrigger("Muerto");
             audio.Play();
@@ -30,10 +34,27 @@ public class EnemyBala : MonoBehaviour {
             return;
 
         if (other.gameObject.tag == "mano" && animaciones.golpeoPosible()) {
+            SangrarTrigger(other);
             muerto = true;
             animator.SetTrigger("Muerto");
             audio.Play();
         }
+    }
+    private void SangrarCollision(Collision other) {
+
+        Vector3 posicion = other.contacts[0].point;
+        Sangrado(posicion);
+    }
+    private void SangrarTrigger(Collider other) { 
+        
+        Vector3 posicion = other.transform.position;
+        Sangrado(posicion);
+    }
+    private void Sangrado(Vector3 posicion) {
+        GameObject sangre = Instantiate(efectoSangre, posicion, Quaternion.identity);
+        sangre.transform.SetParent(transform.GetChild(1));
+        Debug.Log("sangra");
+        Destroy (sangre, 6f);
     }
     // Update is called once per frame
     void Update() {

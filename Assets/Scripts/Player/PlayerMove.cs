@@ -6,24 +6,32 @@ using UnityEngine.UIElements;
 public class PlayerMove : MonoBehaviour {
 
     [Header("Movimiento")]
-    public float speed = 5f;
-    public float jumpForce = 6f;
-    private Rigidbody rb;
-    private Vector2 moveInput;
-    public bool isGrounded;
+        public float speed = 5f;
+        public float jumpForce = 6f;
+        private Rigidbody rb;
+        private Vector2 moveInput;
+        public bool isGrounded;
+        public bool canMove;
 
     [SerializeField]
-    private float runMultiplier = 2f;
-    private bool isRunning = false;
+        private float runMultiplier = 2f;
+        private bool isRunning = false;
 
     [Header("Ground Check")]
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundRadius = 0.5f;
+    [SerializeField] 
+        private Transform groundCheck;
 
-    [SerializeField] private Animaciones animator;
+    [SerializeField] 
+        private float groundRadius = 0.5f;
 
-    [SerializeField] private AudioSource pasos;
-    [SerializeField] private AudioSource salto;
+    [SerializeField] 
+        private Animaciones animator;
+
+    [SerializeField] 
+        private AudioSource pasos;
+
+    [SerializeField] 
+        private AudioSource salto;
 
     void Start() {
         animator = GetComponent<Animaciones>();
@@ -36,6 +44,8 @@ public class PlayerMove : MonoBehaviour {
     }
     private void FixedUpdate() {
 
+        if (!canMove) 
+            return;
         Vector3 direction = transform.TransformDirection(new Vector3(moveInput.x, 0, moveInput.y));
         float currentSpeed = isRunning ? speed * runMultiplier : speed;
         Vector3 velocity = direction * currentSpeed;
@@ -87,6 +97,10 @@ public class PlayerMove : MonoBehaviour {
         }
     }
     public void OnJump(InputValue value) {
+
+        if (!canMove)
+            return;
+
         if (value.isPressed && isGrounded) {
             animator.AnimacionSaltar1();
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -100,6 +114,10 @@ public class PlayerMove : MonoBehaviour {
             return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
+    }
+
+    public void SetCanMove(bool estatus) { 
+        canMove = estatus;
     }
 }
 /*

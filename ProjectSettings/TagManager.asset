@@ -7,6 +7,7 @@ TagManager:
   - suelo
   - bala
   - mano
+  - bomba
   layers:
   - Default
   - TransparentFX
