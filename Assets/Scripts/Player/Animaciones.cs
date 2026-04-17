@@ -41,6 +41,9 @@ public class Animaciones : MonoBehaviour {
     public void AnimacionGolpear() {
         animator.SetTrigger("Golpear");
     }
+    public void AnimacionMuerte() {
+        animator.SetTrigger("Muerte");
+    }
     private void FixedUpdate() {
         Vector3 vWorld = rb.linearVelocity;
         Vector3 vLocal = transform.InverseTransformDirection(vWorld);

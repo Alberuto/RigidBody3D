@@ -13,7 +13,7 @@ public class bombSpawner : MonoBehaviour {
         private float distanciaMaxima = 2f;
 
     [SerializeField]
-        private float altura = 20f;
+        private float altura = 1200f;
 
     [SerializeField]
         private float intervalo = 2f;
@@ -29,16 +29,15 @@ public class bombSpawner : MonoBehaviour {
 
         while (true) {
 
-            /*if (pm.muerto)
-                break;*/
+            if (pm.muerto)
+                break;
 
             Vector2 direccion2D = Random.insideUnitCircle.normalized;
             Vector3 direccion3D = new Vector3(direccion2D.x, 0 , direccion2D.y);
             float distancia = Random.Range(0, distanciaMaxima);
             Vector3 posicionSpawn = player.position + direccion3D * distancia;
             posicionSpawn.y = altura;
-
-            Instantiate(bomb, posicionSpawn, Quaternion.identity);
+            Instantiate(bomb, posicionSpawn, Quaternion.Euler(180f,0f,0f));
             yield return new WaitForSeconds(intervalo);
         }
     }

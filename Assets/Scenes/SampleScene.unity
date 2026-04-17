@@ -325,7 +325,7 @@ MonoBehaviour:
   bomb: {fileID: 1923703799496920530, guid: 0afdac2a6277301408f4d4ab1b724cf4, type: 3}
   player: {fileID: 631987998}
   distanciaMaxima: 2
-  altura: 20
+  altura: 1200
   intervalo: 2
   pm: {fileID: 631988003}
 --- !u!4 &201872214
@@ -336,13 +336,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201872212}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 51.56625, y: 856.68506, z: 26.71926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1001 &290942232
 PrefabInstance:
   m_ObjectHideFlags: 0

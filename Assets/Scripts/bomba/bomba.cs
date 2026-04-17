@@ -6,4 +6,10 @@ public class bomba : MonoBehaviour {
 
         Destroy(gameObject);
     }
+    private void Start() {
+        
+
+
+
+    }
 }

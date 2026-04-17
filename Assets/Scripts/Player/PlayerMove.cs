@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour {
         private Vector2 moveInput;
         public bool isGrounded;
         public bool canMove;
+        public bool muerto = false;
 
     [SerializeField]
         private float runMultiplier = 2f;
@@ -118,6 +119,14 @@ public class PlayerMove : MonoBehaviour {
 
     public void SetCanMove(bool estatus) { 
         canMove = estatus;
+    }
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "bomba") {
+            animator.AnimacionMuerte();
+            muerto = true;
+            canMove = false;
+            pasos.Stop();
+        }
     }
 }
 /*
