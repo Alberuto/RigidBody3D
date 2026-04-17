@@ -8,6 +8,26 @@ TagManager:
   - bala
   - mano
   - bomba
+  - Barril A
+  - Barril B
+  - Libro A
+  - Libro B
+  - Botella A
+  - Botella B
+  - Caja A
+  - Caja B
+  - Caldera A
+  - Caldera B
+  - Cofre SA
+  - Cofre SB
+  - Cofre MA
+  - Cofre MB
+  - Dummy A
+  - Dummy B
+  - Arco A
+  - Arco B
+  - Casco A
+  - Casco B
   layers:
   - Default
   - TransparentFX

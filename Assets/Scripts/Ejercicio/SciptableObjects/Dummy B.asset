@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
+  m_Name: Dummy B
+  m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
+  itemName: "Mu\xF1eco de paja violeta"
+  description: "Tipico mu\xF1eco de entrenamiento medieval con plumas violetas o
+    moradas en su casco"
+  itemTag: Dummy B
+  itemPrefab: {fileID: 8501113303816732838, guid: 88794e520890f3045a594aa8c9e3f679, type: 3}
+  id: 0
