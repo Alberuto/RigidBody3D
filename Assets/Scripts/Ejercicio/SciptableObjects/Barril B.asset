@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Barril B
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: 'Barril de madera nuevo '
-  description: Es un tipico barril de grog nuevo con tapa cerrado aunque puede que
-    vacio por haber recibido algun balazo
+  itemName: 'Barril de grog '
+  description: "Est\xE1 nuevo, con tapa, cerrado aunque puede que vacio por dentro
+    por haber recibido algun balazo"
   itemTag: Barril B
   itemPrefab: {fileID: 5237822985602558460, guid: 55098c36fb10a5c4c88ab2795fa8b8b8, type: 3}
-  id: 0
+  id: 4

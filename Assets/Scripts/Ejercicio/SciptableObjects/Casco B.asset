@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Casco B
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: Casco Rojo
-  description: 'Es un casco de milicia con unas plumas rojas '
+  itemName: Casco
+  description: 'Es un casco plateado de milicia con unas plumas rojas '
   itemTag: Casco B
   itemPrefab: {fileID: 3833373277673950605, guid: 53124c6650baf9746b4806dd087e98cc, type: 3}
-  id: 0
+  id: 12

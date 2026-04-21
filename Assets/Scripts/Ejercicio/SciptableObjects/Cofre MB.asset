@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Cofre MB
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: Cofre Grande Cerrado
+  itemName: Cofre Grande
   description: "Es un cofre de madera Grande y cerrado, no se puede guardar nada
     dentro de \xE9l, no se donde puse la llave"
   itemTag: Cofre MB
   itemPrefab: {fileID: 8967936416172931510, guid: e99ec584fa2703a43b1544d9c88783c7, type: 3}
-  id: 0
+  id: 14

@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Cofre SB
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: "Cofre peque\xF1o "
-  description: "Es un cofre peque\xF1ito y est\xE1 cerrado, no se puede almacenar
-    nada dentro de \xE9l"
+  itemName: 'Cofre Peque '
+  description: "Est\xE1 cerrado, no se puede almacenar nada dentro de \xE9l"
   itemTag: Cofre SB
   itemPrefab: {fileID: 4249077408606629212, guid: d8a0ecb8f1d953b4ebdc1dc83727742d, type: 3}
-  id: 0
+  id: 16

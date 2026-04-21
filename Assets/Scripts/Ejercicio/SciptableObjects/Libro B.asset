@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Libro B
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: Libro Marron
-  description: Libro de texto que suelo leer a menudo de tapas marrones y de cuyo
-    nombre no logro acordarme
+  itemName: Libro
+  description: Novela caballeresca que suelo leer a menudo con tapas marrones y de
+    cuyo nombre no logro acordarme
   itemTag: Libro B
   itemPrefab: {fileID: 7580998287681915500, guid: 3b9c1b654b7c5274da42eba6e96a44e6, type: 3}
-  id: 0
+  id: 20

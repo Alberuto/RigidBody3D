@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Caldera A
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: Caldera vacia
+  itemName: Caldera
   description: Es un caldero de pocima magica vacio, sin nada en su interior
   itemTag: Caldera A
   itemPrefab: {fileID: 2444935373334827257, guid: 85bd8b37f1d592d43bd40d6599794c99, type: 3}
-  id: 0
+  id: 9

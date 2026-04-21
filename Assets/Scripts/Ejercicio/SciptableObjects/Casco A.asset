@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Casco A
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: Casco Azul
+  itemName: Casco
   description: "Casco dorado con plumas azules, \xBFdonde lo habr\xE9 guardado?"
   itemTag: Casco A
   itemPrefab: {fileID: 4485808600253728861, guid: 8ddd4854f358a8548ba0901cc2f33c4e, type: 3}
-  id: 0
+  id: 11

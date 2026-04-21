@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Arco A
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: Arco con letrero
-  description: arco de entrada con cartel Armory
+  itemName: Arco de entrada/salida
+  description: Arco de entrada con cartel Armory
   itemTag: Arco A
   itemPrefab: {fileID: 6780695091016891032, guid: bf0689699264d9d478e8861f116025dd, type: 3}
-  id: 0
+  id: 1

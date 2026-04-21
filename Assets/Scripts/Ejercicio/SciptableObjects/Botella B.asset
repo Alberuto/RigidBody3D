@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Botella B
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
   itemName: 'Botella de Alquimista '
-  description: "Es una Botella de alquimia de color oscuro \xBFdonde la abre metido?"
+  description: "Tiene color negro de guardar zarzaparrilla m\xE1gica \xBFdonde la
+    abre metido?"
   itemTag: Botella B
   itemPrefab: {fileID: 5670954375082196943, guid: e8d0267268fd35b47bf244738aff1879, type: 3}
-  id: 0
+  id: 6

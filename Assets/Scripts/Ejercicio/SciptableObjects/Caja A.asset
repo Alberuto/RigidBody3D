@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Caja A
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: Caja Cuadrada Abierta
-  description: Es una caja de madera que esta abierta sin tapa por arriba
+  itemName: Caja de madera
+  description: Es una caja que esta abierta, sin tapa por arriba
   itemTag: Caja A
   itemPrefab: {fileID: 6759821679443641912, guid: 8e0e94edbf9715744bb568305d96ba4b, type: 3}
-  id: 0
+  id: 7

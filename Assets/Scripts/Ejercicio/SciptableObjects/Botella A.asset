@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f208297e69c2d447b0c7861ee804eb6, type: 3}
   m_Name: Botella A
   m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
-  itemName: Botella Azul
-  description: "Es una botella utilizada en alquimia de color azul oscuro \xBFdonde
-    la abre metido?"
+  itemName: Botella de Alquimista
+  description: "Tiene un color azul oscuro \xBFdonde la abre metido?"
   itemTag: Botella A
   itemPrefab: {fileID: 5861961437660673144, guid: e7b08caaadd3f8044aa74608761a5864, type: 3}
-  id: 0
+  id: 5
