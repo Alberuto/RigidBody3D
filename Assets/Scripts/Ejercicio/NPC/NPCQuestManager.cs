@@ -5,7 +5,7 @@ public class NPCQuestManager : MonoBehaviour {
 
     public List<QuestItemData> questItems;
     private int currentIndex = 0;
-
+    public int objetosEncontrados = 0;
     public QuestItemData CurrentItem => questItems[currentIndex];
 
     public bool IsQuestCompleted => currentIndex >= questItems.Count;
