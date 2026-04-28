@@ -1,72 +1,78 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections;
 
-public class NpcTalk2 : MonoBehaviour {
-
-    [Header("UI")]
-    public GameObject panel;
-    public TMP_Text titleText;
-    public TMP_Text descriptionText;
+public class NpcTalk2 : MonoBehaviour
+{
+    [Header("Panel de diálogo con el NPC")]
+    public GameObject dialoguePanel;        // panel que se abre al hablar con el NPC
+    public TMP_Text titleText;              // "Busca: ..."
+    public TMP_Text descriptionText;        // descripción del objeto
+    public Button okButton;                 // botón para cerrar el panel
 
     [Header("Player")]
     public PlayerMove pm;
     public PlayerLook pl;
 
     [Header("Quest")]
-    public NPCQuestManager questManager;
+    public NPCQuestManager questManager;     // referencia al NPCQuestManager del NPC
 
     private bool playerInside = false;
 
-    private void Start() {
-        if (panel != null) {
-            panel.SetActive(false);
+    private void Awake() {
+        if (dialoguePanel != null) {
+            dialoguePanel.SetActive(false);
+        }
+        if (okButton != null) {
+            okButton.onClick.RemoveAllListeners();
+            okButton.onClick.AddListener(CerrarPanel);
         }
     }
-    public void cerrarPanel() {
-
-        panel.SetActive(false);
+    public void CerrarPanel() {
+        if (dialoguePanel != null) {
+            dialoguePanel.SetActive(false);
+        }
         pl.SetCanMove(true);
         if (pm != null) {
             pm.SetCanMove(true);
         }
-        // No bloqueamos el ratón aquí
     }
     public void activarRaton() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
     private void abrirPanel() {
+        Debug.Log("abrirPanel ejecutado");
 
-        if (!playerInside || panel == null)
+        if (!playerInside || dialoguePanel == null)
             return;
 
-        // Actualiza el texto del panel
-        if (questManager != null && !questManager.IsQuestCompleted) {
+        StartCoroutine(CerrarPanelConDelay(5f));
 
+        // Actualizamos el texto con el objetivo actual
+        if (questManager != null) {
             QuestItemData current = questManager.CurrentItem;
-            if (titleText != null) {
+
+            if (titleText != null)
                 titleText.text = "Busca: " + current.itemName;
-            }
-            if (descriptionText != null) {
+
+            if (descriptionText != null)
                 descriptionText.text = current.description;
-            }
         }
         else {
-            if (titleText != null) {
+            if (titleText != null)
                 titleText.text = "No tengo más que pedirte.";
-            }
-            if (descriptionText != null) {
+            if (descriptionText != null)
                 descriptionText.text = "Gracias por tu ayuda.";
-            }
         }
-        panel.SetActive(true);
+        dialoguePanel.SetActive(true);
         pm.SetCanMove(false);
         pl.SetCanMove(false);
         activarRaton();
-        StartCoroutine(cerrarPanelConDelay());
     }
-    // Usamos Collider en lugar de Collision para que funcione bien
+    // Trigger cuando el player entra en el trigger del NPC
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             playerInside = true;
@@ -78,8 +84,9 @@ public class NpcTalk2 : MonoBehaviour {
             playerInside = false;
         }
     }
-    public IEnumerator cerrarPanelConDelay(float delay = 15f) {
+    public IEnumerator CerrarPanelConDelay(float delay = 5f) {
         yield return new WaitForSeconds(delay);
-        cerrarPanel();
+        CerrarPanel();
+        GameController.Instance.StartTimer();
     }
 }

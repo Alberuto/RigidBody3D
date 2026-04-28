@@ -25,7 +25,7 @@ public class QuestTarget : MonoBehaviour  {
                 // Cierra el panel si está abierto
                 NpcTalk2 npcTalk = FindObjectOfType<NpcTalk2>();
                 if (npcTalk != null) {
-                    npcTalk.cerrarPanel();
+                    npcTalk.CerrarPanel();
                 }
             }
         }

@@ -14,18 +14,17 @@ public class NPCQuestManager : MonoBehaviour {
         if (!IsQuestCompleted) {
             currentIndex++;
         }
+        Debug.Log("Indice aumentado");
     }
-    #region Public utility (para comprobar si el jugador ha encontrado el objeto)
     public bool IsTargetItem(GameObject target) {
 
-        if (CurrentItem == null || target == null) return false;
-
+        if (CurrentItem == null || target == null) 
+            return false;
         // Opción 1: por tag
         if (!string.IsNullOrEmpty(CurrentItem.itemTag))  {
 
             return target.CompareTag(CurrentItem.itemTag);
         }
-
         // Opción 2: por referencia al prefab (si quieres más exacto)
         QuestTarget questTarget = target.GetComponent<QuestTarget>();
         if (questTarget != null) {
@@ -34,5 +33,4 @@ public class NPCQuestManager : MonoBehaviour {
         }
         return false;
     }
-    #endregion
 }

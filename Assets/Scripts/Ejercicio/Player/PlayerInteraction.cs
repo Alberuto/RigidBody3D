@@ -3,6 +3,9 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour {
 
     public NPCQuestManager npcQuest;
+    public AudioSource audioSource;
+    public AudioClip successClip;
+    public FlashEffect flashEffect;
 
     private void OnTriggerEnter(Collider other) {
         // Detectar cuando el jugador se acerca al objeto
@@ -13,7 +16,16 @@ public class PlayerInteraction : MonoBehaviour {
 
             // en UI o via evento, muestras: "¡Encontraste <nombre>!"
             Debug.Log("Objeto encontrado: " + npcQuest.CurrentItem.itemName);
-            // marcar como encontrado y pasar al siguiente
+
+            if (audioSource != null && successClip != null)
+                audioSource.PlayOneShot(successClip);
+
+            if (flashEffect != null)
+                flashEffect.PlayFlash();
+
+            // Manda al GameController
+            GameController.Instance.AddFoundItem();
+            GameController.Instance.StopTimer();
             npcQuest.NextItem();
 
         }
