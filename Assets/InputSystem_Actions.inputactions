@@ -113,6 +113,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Arrancar",
+                    "type": "Button",
+                    "id": "4efae527-19c8-4b81-9ea8-f684b5763a61",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Claxon",
+                    "type": "Button",
+                    "id": "b724976e-88b3-4ea9-b88f-561d34b628cf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -531,6 +549,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Golpear",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "337a8621-192f-40a5-9737-afa81194b68f",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Arrancar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08ee4396-a4c5-4692-a549-0166029b1494",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Claxon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

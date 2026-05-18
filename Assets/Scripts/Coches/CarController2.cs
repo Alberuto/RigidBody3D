@@ -35,8 +35,11 @@ public class CarController2 : MonoBehaviour {
     public float autoBrakeVelocityMultiplier = 0.985f;
     public float deadZoneAcceleration = 0.05f;
 
-    public GameObject imageStop;
-    private PlayerInput playerInput; 
+    public GameObject imageStopL;
+    public GameObject imageStopR;
+
+    private PlayerInput playerInput;
+
     private InputAction moveAction;  // X e Y
     private InputAction brakeAction; //asociado a la accion jump que a su vez se asocia al espacio generalmente
     private float accelerationInput; // cursor Y
@@ -52,10 +55,12 @@ public class CarController2 : MonoBehaviour {
         moveAction = playerInput.actions["Move"]; //wasd
         brakeAction = playerInput.actions["Jump"];//space
 
-        if (imageStop != null) { 
-            imageStop.SetActive(false);
+        if (imageStopL != null) { 
+            imageStopL.SetActive(false);
         }
-
+        if (imageStopR != null) {
+            imageStopR.SetActive(false);
+        }
     }
     public void Update() {
 
@@ -185,8 +190,11 @@ public class CarController2 : MonoBehaviour {
             return true;
     }
     private void MostrarImagenStop() {
-        if (imageStop == null)
+        if (imageStopR == null)
             return;
-        imageStop.SetActive(isBraking);
+        imageStopR.SetActive(isBraking);
+        if (imageStopL == null)
+            return;
+        imageStopL.SetActive(isBraking);
     }
 }
