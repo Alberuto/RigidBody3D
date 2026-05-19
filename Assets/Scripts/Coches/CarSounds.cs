@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,7 @@ public class CarSounds : MonoBehaviour {
     public float maxSpeed = 50f;
     public float pitchSmoothSpeed = 3.0f;
     public CarController2 carController;
+    public CarSpeed carSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -32,11 +34,20 @@ public class CarSounds : MonoBehaviour {
         engineOnAudioSource.Stop();
         claxonAudioSource.Stop();
         brakingAudioSource.Stop();
-
     }
     // Update is called once per frame
     void Update() {
-        
+
+        UpdateEnginePitch();
+        if (carSpeed.speed<1 && brakingAudioSource.isPlaying)             
+            brakingAudioSource.Stop();
+    }
+    private void UpdateEnginePitch() {
+
+        float speed = carRigidbody.linearVelocity.magnitude;
+        float speedPercent = Mathf.Clamp01(speed / maxSpeed);
+        float targetPitch = Mathf.Lerp(minPitch, maxPitch, speedPercent);
+        engineAudioSource.pitch = Mathf.Lerp(engineAudioSource.pitch,targetPitch,Time.deltaTime*pitchSmoothSpeed);
     }
     private IEnumerator SonidoArranqueMotor() { 
     
@@ -64,20 +75,21 @@ public class CarSounds : MonoBehaviour {
             claxonAudioSource.Play();
         }
     }
-    /*public void OnJump(InputAction.CallbackContext context) {
+   /* public void OnJump(InputAction.CallbackContext context) {
+
         if (context.performed) {
                 brakingAudioSource.Play();
         }
         else if (context.canceled) {
                 brakingAudioSource.Stop();
         }
-    }*/
+    }*/ 
     public void OnJump(InputValue playerValue) {
-
-        if (playerValue.isPressed && !brakingAudioSource.isPlaying && carController.isOn) {
+        Debug.Log("car speed  " + carSpeed.speed);
+        if (playerValue.isPressed && !brakingAudioSource.isPlaying && carController.isOn && carSpeed.speed>0f) {
             brakingAudioSource.Play();
         }
-        if (!playerValue.isPressed && brakingAudioSource.isPlaying) {
+        if (!playerValue.isPressed && brakingAudioSource.isPlaying && carSpeed.speed==0) {
             brakingAudioSource.Stop();
         }
     }
